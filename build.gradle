@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id "com.diffplug.spotless" version "6.0.1"
+    id "io.freefair.lombok" version "6.3.0"
+}
+
+group 'uk.cjolive'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.googlejavaformat:google-java-format:1.13.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+}
+
+spotless {
+    java {
+        googleJavaFormat('1.13.0')
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
